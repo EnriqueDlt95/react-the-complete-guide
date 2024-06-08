@@ -1,34 +1,6 @@
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-import reactImg from "./assets/react-core-concepts.png";
-import componentsImg from "./assets/components.png";
-function genRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
-function Header() {
-  const description = reactDescriptions[genRandomInt(reactDescriptions.length)];
-
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {description} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
-
-function CoreConcept(props) {
-  return (
-    <li>
-      <img src={props.img} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-    </li>
-  );
-}
+import Header from "./components/Header";
+import CoreConcept from "./components/CoreConcept";
+import { CORE_CONCEPTS } from "./data";
 
 function App() {
   return (
@@ -39,13 +11,17 @@ function App() {
           <h2>Core Concepts</h2>
           <ul>
             <CoreConcept
-              title="Components"
-              description="the core UI building block."
-              img={componentsImg}
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+              image={CORE_CONCEPTS[0].image}
             />
-            <CoreConcept />
-            <CoreConcept />
-            <CoreConcept />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {/* using the spread operator as
+            our key properties ar equal of those in our jsx tag and the oobject
+            where we get the information we can use the spread operator and we
+            will get the same key values */}
           </ul>
         </section>
         <h2>Time to get started!</h2>
