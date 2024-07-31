@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { EXAMPLES } from "../data";
 import TabButton from "./TabButton";
+import Section from "./Section";
 
 export default function Examples() {
   // we always have to call the react hooks in the top level of a component not inside of any other function inside the component
@@ -26,7 +27,7 @@ export default function Examples() {
   }
 
   return (
-    <section id="examples">
+    <Section title="Examples" id="examples">
       {/* the menu tag can serves to us to have a list ob buttons  */}
       <menu>
         <TabButton
@@ -55,6 +56,6 @@ export default function Examples() {
         </TabButton>
       </menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
